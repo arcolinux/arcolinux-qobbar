@@ -114,4 +114,33 @@ case $desktop in
     fi
     ;;
 
+    jwm|/usr/share/xsessions/jwm)
+    if type "xrandr" > /dev/null; then
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+      done
+    else
+    qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+    fi
+    ;;
+
+    icewm|/usr/share/xsessions/icewm)
+    if type "xrandr" > /dev/null; then
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+      done
+    else
+    qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+    fi
+    ;;
+
+    dwm|/usr/share/xsessions/dwm)
+    if type "xrandr" > /dev/null; then
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+      done
+    else
+    qobbar --reload qobbar -c ~/.config/qobbar/qobbar.conf &
+    fi
+    ;;
 esac
